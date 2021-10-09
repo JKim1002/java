@@ -1,0 +1,40 @@
+public class FR{
+  public static void main(String[]  args) {
+    
+    FileReader fr = null;
+    
+    try {
+    
+      fr = new FileReader("file directory");
+      System.out.println("File open was successful.");
+      
+      while(true) {
+        
+         int a = fr.read();   // read: The character read, or -1 if the end of the stream has been reached
+         
+         if(a == -1) break;
+         
+         System.out.println((char)a);
+         
+       }
+         
+    } catch(FileNotFoundException fe) {
+        
+        System.out.println(fe.getMessage());
+      
+    } catch(IOException ie) {
+        
+        System.out.println(ie.getMessage());
+      
+    } finally {
+        
+        try {
+            if (fr != null) fr.close();
+        } catch(IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+  }
+}
+        
+       
